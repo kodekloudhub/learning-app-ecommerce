@@ -1,0 +1,107 @@
+ .clients_testimonials_area{
+    background: url("../img/testy_bg.jpg") no-repeat fixed;
+    background-position: center; 
+    padding-top: 120px;
+    position: relative;
+    display: block;
+    overflow: hidden; 
+     z-index: 3;
+     &:after{
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         display: block;
+         background-color: rgba(255, 255, 255, .60);
+         z-index: -1;
+     }
+    /* other_testimonial_area */
+    .other_testimonial_area{
+        padding-bottom: 80px;
+        .item{
+            .media{
+                border-radius: 140px 5px 5px 140px;
+                background-color: rgba(255, 255, 255, 0.502);
+                .media-left{
+                    padding-right: 60px;
+                    a{
+                        img{
+                            width: auto;
+                            height: 282px;
+                            width: 282px;
+                        }
+                    }
+                }
+                .media-body{
+                    padding-top: 65px;
+                    padding-right: 120px;
+                    .media-heading{
+                        font: 500 24px $fira;
+                        color: $heading;
+                        span{
+                            font-size: 16px;
+                            font-family: $muli;
+                            color: $p;
+                        }
+                    }
+                    p{
+                        font: 600 italic 18px/30px $muli;
+                        text-decoration: underline;
+                        padding-top: 20px;
+                        color: $hover;
+                    }
+                }
+            }
+        }
+        .owl-controls{
+            text-align: center;
+            padding-top: 60px;
+            .owl-nav{
+                h5{
+                    display: inline-block;
+                    text-transform: uppercase;
+                    font: 400 16px $muli;
+                    text-decoration: underline;
+                    @include transition;
+                    color: $heading;
+                }
+                .owl-prev{
+                    display: inline-block;
+                    padding-right: 80px;
+                    @include transition;  
+                    &:hover, &:focus{ 
+                        h5, i{
+                            color: $hover;
+                        } 
+                    }
+                    i{
+                        padding-right: 15px;
+                        font-size: 16px;
+                        @include transition;
+                        color: $heading;
+                    } 
+                }
+                .owl-next{
+                    display: inline-block; 
+                    &:hover, &:focus{ 
+                        h5, i{
+                            color: $hover;
+                        } 
+                    }
+                    i{
+                        padding-left: 15px;
+                        font-size: 16px;
+                        @include transition;
+                        color: $heading;
+                    } 
+                }
+            }
+        }
+    }
+     /* End other_testimonial_area */
+}
+/* Clients_testimonials_area end 
+============================================================================================ */ 
+ 

@@ -1,0 +1,29 @@
+/* Variables
+============================================================================================ */
+/*Fonts*/   
+$fira: 'Fira Sans', sans-serif; 
+$muli: 'Muli', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i|Muli:300,300i,400,400i,600,600i,700,700i');
+
+/* Color Variables
+============================================================================================ */
+$heading: #181b1f; 
+$p: #2c323a;   
+$hover: #c4a075;    
+$h6:#5c6674;
+
+/* Transition Mixins
+============================================================================================ */
+@mixin transition($property: all, $duration: 300ms, $animate: linear, $delay:0s){
+    transition: $property $duration $animate $delay; 
+}
+
+/* Placeholder Mixins
+============================================================================================ */
+@mixin placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}  

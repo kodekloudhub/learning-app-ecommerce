@@ -1,0 +1,103 @@
+.program_area{
+    background: url("../img/faq_bg.jpg") no-repeat fixed;
+    background-position: center;  
+    position: relative;
+    display: block;
+    overflow: hidden; 
+     z-index: 3;
+     &:after{
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         display: block;
+         background-color: rgba(255, 255, 255, .95);
+         z-index: -1;
+     } 
+    &:before{
+        content: "Benefi";
+        position: absolute; 
+        top: -80px;
+        right: -30px;
+        font: 700 253px/1 $fira;
+        color:rgba(66, 78, 94, 0.051);
+        display: block;
+        letter-spacing: 4px;
+    }
+    padding-top: 120px;
+    padding-bottom:80px;
+    .program_row{
+        padding-top: 95px;
+        padding-bottom: 30px;
+        .program_items{
+            text-align: center;
+            padding-bottom: 40px;
+            img{
+                max-width: 100%;
+            }
+            p{
+                font: 400 16px/30px $muli;
+                color: $p;
+                max-width: 320px;
+                margin: 0 auto;
+                padding-top: 40px;
+            }
+        }
+    }
+} 
+
+.apply_now_area{ 
+    text-align: center; 
+    padding-bottom: 40px;
+    h2{
+        font: 700 36px/1 $fira;
+        color: $heading;
+        display: inline-block;
+        padding-right: 70px;
+    }
+    .learn_mor{
+        text-transform: uppercase;
+        color: #fff;
+        font: 700 16px/50px $fira;
+        width: 220px;
+        text-align: center;
+        border-radius: 30px;
+        background: $hover;
+        display: inline-block;
+        margin: 0 auto;
+        &:hover, &:focus{
+            background: #fff;
+            color: $heading;
+        }
+    }
+}
+.apply_now_tow{ 
+    background: $hover;
+    margin-top: 80px;
+    margin-bottom: 80px; 
+    padding: 65px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-left: 165px;
+    margin-right: 165px;
+    &:after{
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        border: 1px solid #d6bd9f;
+        display: block;
+        z-index: -1;
+    }
+    h2{
+        color: #fff;
+    }
+    .learn_mor{
+        border: 2px solid #fff;
+    }
+}

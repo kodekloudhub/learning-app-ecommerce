@@ -1,0 +1,133 @@
+/* Main Menu css
+============================================================================================ */
+.navbar.navbar-default{
+    background: transparent;
+    border: none;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    // search area
+    .searchForm {
+        height: 0;
+        border-bottom: 1px solid transparent;
+        overflow: hidden;
+        transition: all 300ms linear 0s; 
+        .input-group-addon{
+            border-radius: 0;
+            border: none;
+            font-size: 24px;
+            padding: 0 40px;
+            background: $heading;
+            color: #fff;
+            cursor: pointer;
+        }
+        .form-control {
+            height: 80px;
+            padding: 0 15px;
+            border-radius: 0;
+            border: none;
+            background: $heading;
+            text-align: center;
+            font: 400 18px $muli;
+        }
+    }
+    .show {
+        height: 80px;
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    } 
+    
+    .navbar-header{  
+        .navbar-brand{ 
+            padding-top:35px;
+            img{
+                max-width: 100%; 
+                +img{
+                    display: none;
+                }
+            }
+        } 
+    } 
+    .main_nav{
+        float: none;
+        display: block;
+        text-align: center; 
+        padding-top: 20px;
+        li{
+            display: inline-block;
+            float: none;
+            a{
+                padding: 0px 0px 0px 45px;
+                display: block;
+                line-height: 80px;
+                font-family: $muli;
+                font-size: 16px;
+                background: transparent;
+                color: #fff;
+                &:hover, &:focus{
+                    color: $hover;
+                }
+            }
+            &:first-child{
+                a{
+                    padding-left: 0px;
+                }
+            }  
+        }
+    }
+    .navbar-nav.navbar-right{
+        margin-right: 10px !important;
+        padding-top: 20px;
+        li{
+            a{
+                padding: 0px;
+                margin-right: -10px;
+                display: block;
+                background-color: transparent;
+                color: #fff;  
+                &:hover, &:focus{
+                    color: $hover;
+                }
+                i{
+                    font-size: 18px;
+                    font-weight: bold;
+                    line-height: 80px;
+                }
+            } 
+        }
+    } 
+}
+/* End Main Menu css
+============================================================================================ */
+ 
+.menu_bg{
+    background: #fff !important;
+    z-index: 9999 !important; 
+    @include transition;  
+    .navbar-header{
+         padding-top: 0 !important;  
+        .navbar-brand{ 
+            padding-top: 14px !important;
+            img{
+                display: none;
+                & + img{
+                    display: inline-block !important;
+                }
+            }
+        }  
+    }
+    .main_nav{
+        padding-top: 0 !important;
+        li a{
+            color: $heading !important;
+        }
+    }  
+    .navbar-nav.navbar-right{
+        padding-top: 0 !important;
+        li a { 
+            color: $heading !important;
+        }
+    } 
+} 
+/* End Main Menu tow css
+============================================================================================ */  
+ 

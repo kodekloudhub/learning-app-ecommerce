@@ -1,0 +1,137 @@
+.footer_area{
+    background: url("../img/footer.jpg") no-repeat fixed;
+    background-position: center;  
+    position: relative;
+    display: block;
+    overflow: hidden; 
+     z-index: 3;
+     &:after{
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         display: block;
+         background-color: rgba(22, 29, 38, .60);
+         z-index: -1;
+     }
+    .subscribe_area{
+        padding-top: 110px;
+        padding-bottom: 100px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        h2{
+            font: 700 36px/52px $fira;
+            color: #fff;
+            text-align: center;
+            display: block;
+            padding-bottom: 40px;
+        }
+        .news_letter{
+            text-align: center;
+            .form-group{
+                background: #fff;
+                border-radius: 30px;
+                input{
+                    font: 400 16px/60px $muli;
+                    color: #878f9a;
+                    width: 370px;
+                    height: auto;
+                    padding: 0;
+                    padding-left: 30px;
+                    border-radius: 30px;
+                    border: 0;
+                    box-shadow: none;
+                    outline: none;
+                    display: inline-block;
+                }
+                button{
+                    font: 600 18px/50px $fira;
+                    color: #fff;
+                    background: $hover;
+                    text-align: center;
+                    padding: 0;
+                    border: 0;
+                    width: 137px;
+                    display: inline-block;
+                    border-radius: 30px;
+                    margin-right: 5px;
+                    &:hover, &:focus{
+                        background: $heading; 
+                    }
+                }
+            }
+        }
+    }
+    .check_tittle{
+        padding-top:60px;
+        padding-bottom: 35px;
+        h4{
+            color: #fff;
+        }
+        h2{
+            color: #fff;
+        }
+    }
+    .footer_from_area{
+        padding-top: 80px;
+        padding-bottom: 100px;
+        border-bottom: 1px solid #48626f;
+        .from_main{
+            max-width: 815px; 
+            margin: 0 auto;
+            .form-group{
+                .form-control{
+                    font: 400 15px/60px $muli;
+                    color: #878f9a;
+                    width: 100%; 
+                    height: auto;
+                    background-color: #fff;
+                    padding: 0;
+                    padding-left: 30px;
+                    border-radius: 3px;
+                    border: 0;
+                    box-shadow: none;
+                    outline: none;
+                    display: inline-block;
+                }
+                textarea{
+                    height: 200px !important;
+                    resize: none;
+                }
+                &.mail_p{
+                    padding-right: 6px;
+                }
+                &.sub_p{
+                    padding-left: 6px;
+                }
+                
+                button{
+                    font: 600 16px/60px $fira;
+                    color: #fff;
+                    background: $hover;
+                    text-align: center;
+                    text-transform: uppercase;
+                    padding: 0;
+                    border: 0;
+                    width: 100%;
+                    display: inline-block;
+                    border-radius: 3px;
+                    margin-right: 5px;
+                    margin-top: -5px;
+                    &:hover, &:focus{
+                        background-color: #fff;
+                        color: #878f9a;
+                    }
+                }
+            } 
+        }
+    }
+    .copy_right_area{  
+        .copy_right{ 
+            font: 400 16px/70px $muli;
+            color: #fff;
+            text-align:center;
+        }
+    }
+}    

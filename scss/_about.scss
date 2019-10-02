@@ -1,0 +1,59 @@
+.about_rogram{ 
+    padding-top: 100px; 
+    padding-bottom: 130px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    &:before{
+        content: "About";
+        position: absolute;
+        left: -80px;
+        top: -50px;
+        font: 700 253px/1 $fira;
+        color:rgba(66, 78, 94, 0.051);
+    }
+    .check_tittle{
+        text-align: left;
+        padding-top: 20px;
+        h2{
+            text-align: left;
+            &:after{
+                transform: none;
+                left: 0;
+            }
+        }
+    }
+    p{
+        font: 400 16px/26px $muli;
+        color: $p;
+        max-width:440px;
+        padding-top: 90px;
+        +p{
+            padding-top: 30px;
+        }
+    }
+    .about_images{ 
+        position: relative;
+        padding-left: 80px; 
+        img{
+            max-width: 100%; 
+        }
+        .item{
+            padding-left: 110px; 
+            cursor: pointer; 
+        } 
+        .item2{ 
+            position: absolute;
+            bottom: -190px;
+            cursor: pointer;
+        }
+        .item3{
+            position: absolute;
+            right: -183px;
+            top: 72px;
+            z-index: -1;
+            cursor: pointer;  
+        }
+    }
+}
+ 

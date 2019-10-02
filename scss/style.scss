@@ -1,0 +1,65 @@
+/*----------------------------------------------------
+@File: Default Styles
+@Author: Emran Khan
+@URL: http://themexy.com
+
+This file contains the styling for the actual theme, this
+is the file you need to edit to change the look of the
+theme.
+---------------------------------------------------- */
+
+/* =========================================
+@Template Name: SpaceX.
+@Template Version: 1.0
+@Author: Masum Rana
+@Developed By: Emran Khan
+@Developer URL: fb.com/Emrankhan016
+
+@Default Styles
+
+Table of Content:
+01/ Variables
+02/ Search
+03/ Predefin
+04/ Property
+05/ Button
+06/ Header 
+07/ Slider 
+08/ Inside-gallery 
+09/ Agent 
+10/ Contact 
+11/ Testimonial 
+12/ Footer 
+13/ Faq  
+
+========================================= */ 
+  
+
+ 
+/* ----------------------------- */
+@import "variables";
+/* ----------------------------- */ 
+@import "prefix";
+/* ----------------------------- */  
+@import "header";
+/* ----------------------------- */  
+@import "slider";
+/* ----------------------------- */ 
+@import "about";
+/* ----------------------------- */ 
+@import "program";
+/* ----------------------------- */
+@import "passport";
+/* ----------------------------- */ 
+@import "business";
+/* ----------------------------- */ 
+@import "testimonials";
+/* ----------------------------- */ 
+@import "cuntrap";
+/* ----------------------------- */  
+@import "footer";
+/* ----------------------------- */
+@import "responsive";
+/* ----------------------------- */  
+
+  

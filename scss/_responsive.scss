@@ -1,0 +1,239 @@
+@media (max-width:1500px){
+    .best_business_area{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .cuntrap_area .countapar-container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width:1199px){
+    .address_area .address_row .address{
+        padding: 20px;
+    }
+    .apply_now_area h2{
+        padding-bottom: 30px;
+    }
+    .best_business_area .it_works .business_content .media .media-left {
+        padding-right: 20px;
+        display: block;
+    }
+    .clients_testimonials_area .other_testimonial_area .item .media .media-body {
+        padding-top: 45px;
+        padding-right: 20px;
+    }
+    .clients_testimonials_area .other_testimonial_area .item .media .media-left {
+        padding-right: 20px;
+    }
+    .cuntrap_area .media:nth-child(2) .middle_text{
+        padding-left: 0;
+    }
+    .cuntrap_area .media:nth-child(3) .middle_text{
+        padding-left: 0;
+    }
+    .cuntrap_area .media:last-child .middle_text{
+        float: none;
+    }
+}
+@media (max-width:991px){
+    .navbar-default .navbar-toggle {
+        margin-top: 35px;
+        margin-bottom: 20px;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        background: #fff;
+    }
+    .navbar.navbar-default{ 
+        .main_nav{
+            padding-top: 0;
+             li{
+                display: block;
+                &:first-child a{
+                    padding-left: 20px;
+                }
+                a{
+                    color: $heading;
+                    text-align: left;
+                    padding: 0;
+                    padding-left: 20px;
+                    line-height: 40px;
+                }
+            }
+        }
+        .navbar-right{
+            padding-top: 0 !important;
+            margin: 0;
+            border: 0;
+            li a i{
+                color: $heading;
+                padding-left: 10px;
+                line-height: 40px !important;
+            }
+        } 
+    }  
+    .navbar-default.menu_bg .navbar-toggle{
+        margin-top: 17px;
+    }
+    .slider_area .slider_inner .camera_caption div h2{
+        font-size: 50px;
+        line-height: 60px;
+    }
+    
+    .address_area .address_row .address{
+        padding: 60px;
+        padding-top: 30px;
+        padding-bottom: 0;
+        height: auto;
+    }
+    .address_area .address_row{
+        padding-bottom: 30px;
+    }
+    .apply_now_area{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .best_business_area .it_works .business_content{
+        max-width: 380px;
+        margin: 0 auto;
+    }
+    .clients_testimonials_area .other_testimonial_area .item .media .media-left {
+        padding-right: 0;
+        display: block; 
+        margin: 0 auto;
+        max-width: 285px;
+    }
+    .clients_testimonials_area .other_testimonial_area .item .media{
+        border-radius: 5px;
+        padding-top: 40px;
+    }
+    .clients_testimonials_area .other_testimonial_area .item .media .media-body .media-heading{
+        text-align: center;
+    }
+    .clients_testimonials_area .other_testimonial_area .item .media .media-body p{
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 40px;
+    }
+    .cuntrap_area .media {
+        width: 50%; 
+    }  
+    .footer_area .copy_right_area .nav_footer{
+        display: block;
+        float: none;
+        text-align: center;
+    }
+    .footer_area .copy_right_area .copy_right{
+        text-align: center;
+    }
+    .about_rogram .about_images{
+        padding-left: 0;
+        padding-top: 50px;
+    }
+    .about_rogram .about_images{
+        text-align: center;
+        .item {
+            padding-left: 0; 
+            padding-bottom: 20px;
+        }
+        .item2 {
+            position: relative;
+            bottom: 0;
+            padding-bottom: 20px;
+        }
+        .item3 {
+            position: relative;
+            right: auto;
+            top: auto; 
+        }
+    }  
+}  
+@media (max-width:767px){ 
+    .slider_area .slider_inner .camera_caption div h2{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .slider_area .slider_inner .camera_caption div h5 { 
+        padding-bottom: 30px; 
+        padding-top: 20px;
+    }
+    .check_tittle h2{
+        font-size: 30px;
+        &:after{
+            bottom: -20px
+        }
+    }
+    .apply_now_area h2{
+        display: block;
+        font-size: 25px;
+        padding-right: 0;
+    }
+    .european_passport h2{
+        font-size: 25px;
+        padding-bottom: 30px;
+    }
+    .european_passport{
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    
+    .cuntrap_area .media {
+        width: 100%; 
+    } 
+    .footer_area .subscribe_area .news_letter{
+        .form-group{
+            background-color: transparent;
+            input{
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            button{
+                width: 100%;
+                line-height: 60px;
+            }
+        }
+    } 
+    .footer_area .footer_from_area .from_main .form-group.mail_p {
+        padding-right: 15px;
+    }
+    .footer_area .footer_from_area .from_main .form-group.sub_p{
+        padding-left: 15px;
+    }
+    .footer_area .copy_right_area{
+        padding-top: 20px;
+        .nav_footer li {
+            display: block;
+            a{
+                line-height: 40px;
+                padding: 0;
+            }
+        }
+        .copy_right{
+            line-height: 26px;
+            padding-bottom: 20px;
+        }
+    } 
+    .slider_area .slider_inner .camera_caption h2{
+        font-size: 30px;
+    }
+    .slider_area .slider_inner .camera_caption h5 { 
+        padding-bottom: 25px; 
+        padding-top: 0px;
+    }
+    .slider_area .slider_inner { 
+        height: 500px;
+    }
+}   
+@media (max-width:360px){
+    .address_area .address_row .address{
+        padding: 15px;
+    }
+    .apply_now_area .learn_mor{
+        width: 180px;
+    }
+}
+
+@media (max-width:320px){
+    
+}

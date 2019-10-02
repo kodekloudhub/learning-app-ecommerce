@@ -1,0 +1,53 @@
+.cuntrap_area{
+    padding-top: 50px;
+    padding-bottom: 10px;
+    display: block;
+    overflow: hidden;   
+    background-color: #f4f7f9;
+    .countapar-container{
+        padding: 0 165px;
+    }
+    .media{
+        width: 25%;
+        float: left;
+        margin-top: 0;
+        padding-bottom: 30px;
+        .media-left{  
+            img{ 
+                padding-right: 20px; 
+            }
+        }
+        .media-body{ 
+            span{ 
+                font-size: 60px;
+                font-family: $fira;
+                font-weight: bold;
+                color: $hover;
+                margin-top: -6px; 
+                line-height: 1;
+                display: inline-block;
+            }
+            h6{
+                font: 400 16px $muli;
+                color: $p;
+                padding-top: 7px;
+            }
+        } 
+        &:nth-child(2){
+            .middle_text{
+                padding-left: 20px;
+            }
+        }
+        &:nth-child(3){
+            .middle_text{
+                padding-left: 80px;
+            }
+        }
+        &:last-child{
+            .middle_text{
+                width: 260px;
+                float: right;
+            }
+        }
+    }
+} 

@@ -1,0 +1,61 @@
+.best_business_area{  
+    padding: 100px 165px 40px; 
+    position: relative;
+    overflow: hidden; 
+    &:before{
+        content: "Why Choose Us";
+        position: absolute;
+        left: 50px;
+        top: -90px;
+        right: 0;
+        font: 700 253px/1 $fira;
+        color:rgba(66, 78, 94, 0.051);
+        display: block;
+        letter-spacing: 4px;
+    }
+    .it_works{
+        position: relative; 
+        padding-top: 90px;
+        z-index: 1; 
+        .business_content{
+            padding-bottom: 30px;
+            img{
+                max-width: 100%;
+                border-radius: 3px;
+                @include transition;
+                cursor: pointer;
+                border: 15px solid #fff;
+                box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.21);
+            }
+            .media{
+                padding-top: 10px;
+                .media-left{
+                    padding-right: 20px;
+                    h2{
+                        font: 700 72px $fira;
+                        color: $hover;
+                    }
+                }
+                .media-body{
+                    padding-top: 15px;
+                    a{
+                        font: 500 18px $fira; 
+                        color: $heading;
+                    }
+                    p{
+                        font: 400 16px/26px $fira;
+                        color: $p;
+                        padding-top: 10px;
+                        color: $p;
+                    } 
+                }
+                &:hover, &:focus{
+                    .media-body a{
+                        color: $hover;
+                    }
+                }
+            } 
+        }
+    }
+}   
+ 
