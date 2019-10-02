@@ -102,104 +102,48 @@
                 <h2>Product List</h2>
             </div>
             <div class="row it_works">
+              <?php
+
+                        $link = mysqli_connect('172.20.1.101', 'ecomuser', 'ecompassword', 'ecomdb');
+
+                        if ($link) {
+                        $res = mysqli_query($link, "select * from strollers;");
+                        while ($row = mysqli_fetch_assoc($res)) { ?>
+
                 <div class="col-md-3 col-sm-6 business_content">
-                    <img src="img/c-1.jpg" alt="">
+                    <?php echo '<img src="img/' . $row['ImageUrl'] . '" alt="">' ?>
                     <div class="media">
                         <div class="media-left">
 
                         </div>
                         <div class="media-body">
-                            <a href="#">Macbook Pro</a>
-                            <p>Purchase MB at the lowest price <span>100$</span></p>
+                            <a href="#"><?php echo $row['Name'] ?></a>
+                            <p>Purchase <?php echo $row['Name'] ?> at the lowest price <span><?php echo $row['Price'] ?>$</span></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 business_content">
-                    <img src="img/c-2.jpg" alt="">
-                    <div class="media">
-                        <div class="media-left">
 
-                        </div>
-                        <div class="media-body">
-                            <a href="#">Drone</a>
-                            <p>Purchase Multifunctional drones</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 business_content">
-                    <img src="img/c-3.jpg" alt="">
-                    <div class="media">
-                        <div class="media-left">
+                <?php
+                        }
+                    }
+                    else {
+                ?>
+                <div style="width: 100%">
+                <div class="error-content">
 
-                        </div>
-                        <div class="media-body">
-                            <a href="#">VR</a>
-                            <p>Explore our VR Devices</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 business_content">
-                    <img src="img/c-4.jpg" alt="">
-                    <div class="media">
-                        <div class="media-left">
+                    <h1>Database connection error</h1>
+                    <p>
+                    <?php
+                          echo mysqli_connect_errno() . ":" . mysqli_connect_error();
+                    ?>
+                    </p>
+                  </div>
+                  </div>
+                  <?php
+                    }
+                  ?>
 
-                        </div>
-                        <div class="media-body">
-                            <a href="#">Macbook air</a>
-                            <p>Purchase MB at the lowest price</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row it_works">
-                <div class="col-md-3 col-sm-6 business_content">
-                    <img src="img/c-5.jpg" alt="">
-                    <div class="media">
-                        <div class="media-left">
 
-                        </div>
-                        <div class="media-body">
-                            <a href="#">iPad Mini</a>
-                            <p>We sell ipad mini</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 business_content">
-                    <img src="img/c-6.jpg" alt="">
-                    <div class="media">
-                        <div class="media-left">
-
-                        </div>
-                        <div class="media-body">
-                            <a href="#">Smart Watches</a>
-                            <p>Our best smart watches</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 business_content">
-                    <img src="img/c-7.jpg" alt="">
-                    <div class="media">
-                        <div class="media-left">
-
-                        </div>
-                        <div class="media-body">
-                            <a href="#">Phone covers</a>
-                            <p>Buy nice colorful phone covers</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 business_content">
-                    <img src="img/c-8.jpg" alt="">
-                    <div class="media">
-                        <div class="media-left">
-
-                        </div>
-                        <div class="media-body">
-                            <a href="#">iPhones</a>
-                            <p>We sell best quality phones</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 

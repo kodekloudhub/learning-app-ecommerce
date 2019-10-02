@@ -577,6 +577,16 @@ ul {
   color: #c4a075;
 }
 
+.error-content {
+  background: #ff000047;color: red;
+  text-align: center;
+}
+
+.error-content h1 {
+  style="color: red"
+}
+
+
 /* ----------------------------- */
 .clients_testimonials_area {
   background: url("../img/testy_bg.jpg") no-repeat fixed;
