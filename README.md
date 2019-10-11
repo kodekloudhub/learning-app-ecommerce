@@ -83,10 +83,14 @@ git clone https://github.com/kodekloudhub/learning-app-ecommerce.git /var/www/ht
 
 5. Update index.php
 
-Update index.php file to connect to the right database server. In this case `localhost` since the database is on the same server.
+Update [index.php](https://github.com/kodekloudhub/learning-app-ecommerce/blob/13b6e9ddc867eff30368c7e4f013164a85e2dccb/index.php#L107) file to connect to the right database server. In this case `localhost` since the database is on the same server.
 
 ```
-
+              <?php
+                        $link = mysqli_connect('172.20.1.101', 'ecomuser', 'ecompassword', 'ecomdb');
+                        if ($link) {
+                        $res = mysqli_query($link, "select * from products;");
+                        while ($row = mysqli_fetch_assoc($res)) { ?>
 ```
 
 5. Test
