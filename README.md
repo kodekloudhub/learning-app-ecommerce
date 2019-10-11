@@ -1,3 +1,96 @@
 # Introduction
 
-This is a sample e-commerce application built for learning purposes
+This is a sample e-commerce application built for learning purposes.
+
+Here's how to deploy it on CentOS systems:
+
+## Deploy Pre-Requisites
+
+1. Install FirewallD
+
+```
+sudo yum install firewalld
+sudo service firewalld start
+sudo systemctl enable firewalld
+```
+
+## Deploy and Configure Database
+
+1. Install MariaDB
+
+```
+sudo yum install mariadb-server
+sudo vi /etc/my.cnf
+sudo service mariadb start
+sudo systemctl enable mariadb
+```
+
+2. Configure firewall for Database
+
+```
+sudo firewall-cmd --permanent --zone=public --add-port=3306/tcp
+sudo firewall-cmd --reload
+```
+
+3. Configure Database
+
+```
+$ mysql
+MariaDB > CREATE DATABASE ecomdb;
+MariaDB > CREATE USER 'ecomuser'@'localhost' IDENTIFIED BY 'ecompassword';
+MariaDB > GRANT ALL PRIVILEGES ON *.* TO 'ecomuser'@'localhost';
+MariaDB > FLUSH PRIVILEGES;
+```
+
+4. Load Product Inventory Information to database
+
+```
+mysql < db-load-script.sql
+```
+
+
+## Deploy and Configure Web
+
+1. Install required packages
+
+```
+sudo yum install -y httpd php php-mysql
+sudo firewall-cmd --permanent --zone=public --add-port=80/tcp
+sudo firewall-cmd --reload
+```
+
+2. Configure httpd
+
+Change `DirectoryIndex index.html` to `DirectoryIndex index.php` to make the php page the default page
+
+```
+sudo vi /etc/httpd/conf/httpd.conf
+```
+
+3. Start httpd
+
+```
+sudo service httpd start
+sudo systemctl enable httpd
+```
+
+4. Download code
+
+```
+sudo yum install -y git
+git clone https://github.com/kodekloudhub/learning-app-ecommerce.git /var/www/html/
+```
+
+5. Update index.php
+
+Update index.php file to connect to the right database server. In this case `localhost` since the database is on the same server.
+
+```
+
+```
+
+5. Test
+
+```
+curl http://localhost
+```
