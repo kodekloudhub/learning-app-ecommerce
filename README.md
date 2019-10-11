@@ -42,6 +42,8 @@ MariaDB > GRANT ALL PRIVILEGES ON *.* TO 'ecomuser'@'localhost';
 MariaDB > FLUSH PRIVILEGES;
 ```
 
+> ON a multi-node setup remember to provide the IP address of the web server here: `'ecomuser'@'web-server-ip'`
+
 4. Load Product Inventory Information to database
 
 ```
@@ -92,6 +94,8 @@ Update [index.php](https://github.com/kodekloudhub/learning-app-ecommerce/blob/1
                         $res = mysqli_query($link, "select * from products;");
                         while ($row = mysqli_fetch_assoc($res)) { ?>
 ```
+
+> ON a multi-node setup remember to provide the IP address of the database server here.
 
 6. Test
 
