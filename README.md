@@ -93,7 +93,7 @@ Update [index.php](https://github.com/kodekloudhub/learning-app-ecommerce/blob/1
                         while ($row = mysqli_fetch_assoc($res)) { ?>
 ```
 
-5. Test
+6. Test
 
 ```
 curl http://localhost
