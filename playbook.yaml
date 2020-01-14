@@ -1,0 +1,91 @@
+---
+- hosts: all
+  become: yes
+  vars:
+      domain: ecomdb
+  tasks:
+      - name: Install firewalld
+        yum:
+            name: 
+                - firewalld
+                - mariadb-server
+                - MySQL-python
+                - httpd
+                - php
+                - php-mysql
+                - git
+            state: present
+      - name: Start and enable fireballd at startup
+        service: 
+            name: "{{ item }}"
+            state: started
+            enabled: yes
+        with_items:
+            - firewalld
+            - mariadb
+      - name: Configure firewall for database
+        firewalld:
+            permanent: true
+            immediate: true
+            zone: "{{ item.zone }}"
+            port: "{{ item.port }}"
+            state: "{{ item.state }}"
+        with_items:
+            - port: 3306/tcp
+              zone: public
+              state: enabled
+            - port: 80/tcp
+              zone: public
+              state: enabled
+      - name: Create database ecomdb
+        mysql_db:
+            name: "{{ domain }}"
+            state: present
+        register: db_created
+      - name: create mysql user
+        mysql_user:
+            name: ecomuser
+            host: localhost
+            password: ecompassword
+            priv: '*.*:ALL'
+            state: present
+      - name: copy sql file
+        copy:
+            src: assets/db-load-script.sql
+            dest: /tmp
+        when: db_created.changed
+      - name: load data to db
+        mysql_db:
+            login_user: ecomuser
+            login_password: ecompassword
+            name: ecomdb
+            state: import
+            target: /tmp/db-load-script.sql
+        when: db_created.changed
+      - name: Configure httpd
+        lineinfile:
+            path: /etc/httpd/conf/httpd.conf
+            regex: 'DirectoryIndex.*index'
+            line: '   DirectoryIndex index.php'
+            backup: yes
+            state: present
+        notify: restart httpd
+      - name: Download code
+        git:
+            repo: https://github.com/kodekloudhub/learning-app-ecommerce.git
+            dest: /var/www/html/
+            force: yes
+        notify: restart httpd
+      - name: Change sql ip
+        replace:
+            path: /var/www/html/index.php
+            regexp: '172.20.1.101'
+            replace: 'localhost'
+        notify: restart httpd
+  handlers:
+      - name: restart httpd
+        service:
+            name: httpd
+            state: restarted
+
+
