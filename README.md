@@ -62,7 +62,7 @@ Run sql script
 
 ```
 
-mysql < assets/db-load-script.sql
+mysql < db-load-script.sql
 ```
 
 
