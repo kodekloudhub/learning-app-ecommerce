@@ -1,0 +1,21 @@
+lamp-web ansible_host="192.168.59.110"  ansible_ssh_private_key_file=/home/mourad/.ssh/mourad ansible_user=mourad
+
+lamp-db ansible_host=db-ip ansible_ssh_private_key_file=/home/mourad/.ssh/mourad ansible_user=mourad
+
+[web_servers]
+lamp-web 
+
+[db_servers]
+lamp-db 
+
+[web_servers:vars]
+httpd_port=80
+repository=https://github.com/mouradlakhtibi/lamp-ecommerce.git
+
+[db_servers:vars]
+mysqlservice=mysqld
+mysql_port=3306
+dbname=ecomdb
+dbuser=ecomuser
+dbpassword=ecompassword
+
