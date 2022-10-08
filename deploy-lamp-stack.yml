@@ -1,0 +1,77 @@
+- name: Deploy lamp stack application
+  hosts: all
+  become: true
+  tasks:
+    - name: Install common dependencies
+      yum:
+        name:
+          - libselinux-python
+          - libsemanage-python
+          - firewalld
+        state: installed
+- name: config mariadb
+  hosts: lamp-db
+  become: true
+  tasks:
+    - name: install mariadb-server and mysql-python
+      yum:
+        name:
+          - mariadb-server
+          - MySQL-python
+        state: installed
+    - name:  copy sql config file
+      copy: src=files/my.cnf dest=/etc/my.cnf
+    - name: start enable mariadb service
+      service: name=mariadb state=started enabled=yes
+    - name: start firewalld
+      service: name=firewalld state=started enabled=yes
+    - name: insert firewalld rule
+      firewalld: port=3306/tcp  permanent=true state=enabled immediate=yes
+    - name: Create Application Database
+      mysql_db: name={{ dbname }} state=present
+
+    - name: Create Application DB User
+      mysql_user: name={{ dbuser }} password={{ dbpassword }} priv=*.*:ALL host='172.20.1.100' state=present
+
+    - name: Move db-load-script to db host
+      copy:
+        src: files/db-load-script.sql
+        dest: /tmp/db-load-script.sql
+
+    - name: Load Inventory Data
+      shell: mysql -f < /tmp/db-load-script.sql
+- name: Deploy lamp stack application
+  hosts: lampweb
+  become: yes
+  tasks:
+    - name: Install httpd and php
+      yum:
+        name:
+          - httpd
+          - php
+          - php-mysql
+        state: present
+
+    - name: Install web role specific dependencies
+      yum: name=git state=installed
+
+    - name: Start firewalld
+      service: name=firewalld state=started enabled=yes
+
+    - name: insert firewalld rule for httpd
+      firewalld: port=80/tcp permanent=true state=enabled immediate=yes      
+
+    - name: Set index.php as the default page
+      tags: "Set index.php as the default page"
+      replace:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: 'DirectoryIndex index.html'
+        replace: 'DirectoryIndex index.php'
+
+    - name: http service state
+      service: name=httpd state=started enabled=yes 
+    - name: Copy the code from repository
+      git: repo={{ repository }} dest=/var/www/html/  force=yes
+
+    - name: Creates the index.php file
+      copy: src=files/index.php dest=/var/www/html/index.php  

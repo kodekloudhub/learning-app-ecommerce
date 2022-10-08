@@ -1,0 +1,13 @@
+lamp-web lamp-web:172.20.1.100 Username=john Password=john
+lamp-db lamp-db:172.20.1.101 Username=maria Password=mariad
+
+[lamp-web.vars]
+httpd_port=80
+repository=https://github.com/mouradlakhtibi/lamp-ecommerce.git
+
+[lamp-db.vars]
+mysqlservice=mysqld
+mysql_port=3306
+dbname=ecomdb
+dbuser=ecomuser
+dbpassword=ecompassword
