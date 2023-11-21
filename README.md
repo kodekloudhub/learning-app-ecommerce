@@ -10,8 +10,9 @@ Here's how to deploy it on CentOS systems:
 
 ```
 sudo yum install -y firewalld
-sudo service firewalld start
-sudo systemctl enable firewalld
+sudo systemctl start firewalld
+sudo systemctl enable firewalls
+sudo systemctl status firewalld
 ```
 
 ## Deploy and Configure Database
@@ -21,7 +22,7 @@ sudo systemctl enable firewalld
 ```
 sudo yum install -y mariadb-server
 sudo vi /etc/my.cnf
-sudo service mariadb start
+sudo systemctl start mariadb
 sudo systemctl enable mariadb
 ```
 
@@ -62,7 +63,7 @@ Run sql script
 
 ```
 
-mysql < db-load-script.sql
+sudo mysql < db-load-script.sql
 ```
 
 
@@ -71,7 +72,7 @@ mysql < db-load-script.sql
 1. Install required packages
 
 ```
-sudo yum install -y httpd php php-mysql
+sudo yum install -y httpd php php-mysqlnd
 sudo firewall-cmd --permanent --zone=public --add-port=80/tcp
 sudo firewall-cmd --reload
 ```
@@ -87,7 +88,7 @@ sudo sed -i 's/index.html/index.php/g' /etc/httpd/conf/httpd.conf
 3. Start httpd
 
 ```
-sudo service httpd start
+sudo systemctl start httpd
 sudo systemctl enable httpd
 ```
 
@@ -95,7 +96,7 @@ sudo systemctl enable httpd
 
 ```
 sudo yum install -y git
-git clone https://github.com/kodekloudhub/learning-app-ecommerce.git /var/www/html/
+sudo git clone https://github.com/kodekloudhub/learning-app-ecommerce.git /var/www/html/
 ```
 
 5. Update index.php
