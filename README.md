@@ -11,7 +11,7 @@ Here's how to deploy it on CentOS systems:
 ```
 sudo yum install -y firewalld
 sudo systemctl start firewalld
-sudo systemctl enable firewalls
+sudo systemctl enable firewalld
 sudo systemctl status firewalld
 ```
 
