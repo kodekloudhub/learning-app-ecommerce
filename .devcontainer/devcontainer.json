@@ -1,0 +1,42 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/terraform:1": {
+            "version": "1.5.7"
+        },
+        "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+            "plugins": "git zsh-autosuggestions zsh-syntax-highlighting sudo",
+            "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting.git",
+            "username": "vscode"
+        },
+        "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+        "ghcr.io/devcontainers-contrib/features/asdf-package:1": {},
+        "ghcr.io/devcontainers-contrib/features/ansible:2": {},
+        "ghcr.io/hspaans/devcontainer-features/ansible-lint:1": {},
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "hashicorp.hcl"
+            ],
+            "settings": {
+                "editor.formatOnSave": true,
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "/usr/bin/zsh"
+                    }
+                }
+            }
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.terraformrc,target=/home/vscode/.terraformrc,type=bind,consistency=cached"
+    ]
+}
