@@ -1,0 +1,1 @@
+export LINODE_TOKEN=mytoken
