@@ -5,7 +5,7 @@ FROM php:7.4-apache
 RUN docker-php-ext-install mysqli
 
 # Copy the application source code to /var/www/html/
-COPY . /var/www/html/
+COPY ./app/ /var/www/html/
 
 # Update database connection strings to point to a Kubernetes service named mysql-service
 ENV DB_HOST=mysql-service
