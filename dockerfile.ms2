@@ -1,0 +1,16 @@
+# Stage 1: Build environment for installing dependencies
+FROM php:7.4-apache AS builder
+
+RUN apt-get update && apt-get install -y mysqli && apt-get clean
+
+# Stage 2: Copy application code and configure database connection
+FROM php:7.4-apache
+
+# Copy source code to Apache document root
+COPY . /var/www/html
+
+# Update database connection string (replace 'config.php' with your actual file)
+RUN sed -i 's/DATABASE_HOST.*/DATABASE_HOST=mysql-service/g' /var/www/html/config.php
+
+# Expose port 80 for web traffic
+EXPOSE 80

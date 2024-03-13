@@ -1,0 +1,25 @@
+# Stage 1: Build Stage
+FROM php:7.4-apache AS build
+
+# Install mysqli extension
+RUN docker-php-ext-install mysqli
+
+# Stage 2: Production Stage
+FROM php:7.4-apache
+
+# Copy the built mysqli extension from the build stage
+COPY --from=build /usr/local/lib/php/extensions/no-debug-non-zts-20190902/mysqli.so /usr/local/lib/php/extensions/no-debug-non-zts-20190902/mysqli.so
+
+# Enable the mysqli extension
+RUN echo "extension=mysqli.so" > /usr/local/etc/php/conf.d/docker-php-ext-mysqli.ini
+
+# Copy source code to /var/www/html
+COPY src/ /var/www/html/
+
+# Update database connection string to point to the Kubernetes service named mysql-service
+# Assuming the connection is in a PHP file, you may need to replace the appropriate string
+# Example: If your connection string is in config.php
+# RUN sed -i 's/old_connection_string/new_connection_string/g' /var/www/html/config.php
+
+# Expose port 80
+EXPOSE 80
