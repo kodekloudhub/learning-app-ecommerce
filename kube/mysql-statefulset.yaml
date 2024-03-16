@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql-statefulset
+  labels: &labels
+    app: mysql
+    component: statefulset
+spec:
+  serviceName: mysql-statefulset
+  replicas: 1
+  selector:
+    matchLabels: *labels
+  template:
+    metadata:
+      labels: *labels
+    spec:
+      containers:
+      - name: mysql
+        image: mariadb:latest
+        env:
+          - name: MYSQL_DATABASE
+            value: myDB
+          - name: MYSQL_USER
+            value: user
+          - name: MYSQL_PASSWORD
+            value: test
+          - name: MYSQL_ROOT_PASSWORD
+            value: test
+        ports:
+          - containerPort: 3306
+        volumeMounts:
+          - name: mariadb-persistent-storage
+            mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: mariadb-persistent-storage
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
