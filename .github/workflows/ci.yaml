@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'app/**'
+      - 'Dockerfile'
 
 env:
   DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}

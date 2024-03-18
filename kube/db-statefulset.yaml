@@ -18,21 +18,15 @@ spec:
       containers:
       - name: mysql
         image: mariadb:latest
-        env:
-          - name: MYSQL_DATABASE
-            value: ecomdb
-          - name: MYSQL_USER
-            value: user
-          - name: MYSQL_PASSWORD
-            value: test
-          - name: MYSQL_ROOT_PASSWORD
-            value: test
         ports:
           - containerPort: 3306
         volumeMounts:
           - name: script-volume
             mountPath: /docker-entrypoint-initdb.d
+        envFrom:
+          - configMapRef:
+              name: db-cm
       volumes:
         - name: script-volume
           configMap:
-            name: ecomdb-configmap
+            name: db-cm
