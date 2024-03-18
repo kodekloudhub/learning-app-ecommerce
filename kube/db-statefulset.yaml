@@ -22,11 +22,13 @@ spec:
           - containerPort: 3306
         volumeMounts:
           - name: script-volume
-            mountPath: /docker-entrypoint-initdb.d
+            mountPath: /docker-entrypoint-initdb.d/create-db.sql
+            subPath: create-db.sql
+        
         envFrom:
-          - configMapRef:
-              name: db-cm
+          - secretRef:
+              name: db-secrets
       volumes:
         - name: script-volume
           configMap:
-            name: db-cm
+            name: db-init-cm

@@ -38,6 +38,6 @@
         }
     },
     "mounts": [
-        "source=${localEnv:HOME}/.terraformrc,target=/home/vscode/.terraformrc,type=bind,consistency=cached"
+        "source=${localEnv:HOME}/.kube,target=/home/vscode/.kube,type=bind,consistency=cached"
     ]
 }

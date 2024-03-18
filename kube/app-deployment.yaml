@@ -17,6 +17,21 @@ spec:
           image: wujiayi1986/ecom-web:latest
           ports:
             - containerPort: 80
-          envFrom:
-            - configMapRef:
-                name: app-cm
+          env:
+            - name: DB_HOST
+              value: mysql-service
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: MYSQL_DATABASE
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: MYSQL_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: MYSQL_PASSWORD                  

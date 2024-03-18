@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: app-cm
-data:
-  DB_HOST: mysql-service
-  DB_NAME: ecomdb
-  DB_USER: user
-  DB_PASSWORD: test
