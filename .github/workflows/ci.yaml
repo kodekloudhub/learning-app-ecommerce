@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'app/**'
-      - 'Dockerfile'
 
 env:
   DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -32,3 +31,4 @@ jobs:
         run: |
           docker buildx create --use
           docker buildx build --push --platform linux/amd64,linux/arm64 --tag ${{ env.DOCKER_HUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} .
+        working-directory: app/

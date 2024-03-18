@@ -5,10 +5,7 @@ FROM php:7.4-apache
 RUN docker-php-ext-install mysqli
 
 # Copy the application source code to /var/www/html/
-COPY ./app/ /var/www/html/
-
-# Update database connection strings to point to a Kubernetes service named mysql-service
-ENV DB_HOST=mysql-service
+COPY . /var/www/html/
 
 # Expose port 80 to allow traffic to the web server
 EXPOSE 80
