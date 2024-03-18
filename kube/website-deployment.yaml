@@ -20,9 +20,9 @@ spec:
           env:
             - name: DB_HOST
               value: mysql-service
-            - name: DB_PORT
-              value: "3306"
-            - name: DB_USERNAME
+            - name: DB_NAME
+              value: myDB
+            - name: DB_USER
               value: user
             - name: DB_PASSWORD
               value: test

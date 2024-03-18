@@ -29,15 +29,3 @@ spec:
             value: test
         ports:
           - containerPort: 3306
-        volumeMounts:
-          - name: mariadb-persistent-storage
-            mountPath: /var/lib/mysql
-  volumeClaimTemplates:
-    - metadata:
-        name: mariadb-persistent-storage
-      spec:
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 1Gi
