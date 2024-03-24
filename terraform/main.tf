@@ -10,3 +10,8 @@ resource "linode_lke_cluster" "my-cluster" {
     count = 1
   }
 }
+
+resource "local_file" "kubeconfig" {
+  filename = "/home/vscode/.kube/config"
+  content  = base64decode(linode_lke_cluster.my-cluster.kubeconfig)
+}
