@@ -2,21 +2,17 @@ name: Docker Build and Push
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'app/**'
+    tags:
+      - '*'
 
 env:
   DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
   DOCKER_IMAGE_NAME: ecom-web
-  DOCKER_IMAGE_TAG: latest
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,5 +26,5 @@ jobs:
       - name: Build and push Docker image
         run: |
           docker buildx create --use
-          docker buildx build --push --platform linux/amd64,linux/arm64 --tag ${{ env.DOCKER_HUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} .
+          docker buildx build --push --platform linux/amd64,linux/arm64 --tag ${{ env.DOCKER_HUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${GITHUB_REF#refs/tags/} .
         working-directory: app/

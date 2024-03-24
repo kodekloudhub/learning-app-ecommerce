@@ -1,0 +1,14 @@
+name: Tagging
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  semver:
+    uses: wujiayi101/reusable-workflows/.github/workflows/auto-semver.yml@v1.3.0
