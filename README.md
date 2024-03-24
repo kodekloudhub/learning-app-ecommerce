@@ -20,6 +20,23 @@ Devcontainer allows you to develop in an isolated container with all required so
 # Install sealed-secrets
 
 ```
+
+```
+
+# Create sealed-secrets
+
+```
+# Create local secret file
+kubectl create secret generic db-secrets \
+  --from-literal=MYSQL_DATABASE=ecomdb \
+  --from-literal=MYSQL_PASSWORD=test \
+  --from-literal=MYSQL_ROOT_PASSWORD=test \
+  --from-literal=MYSQL_USER=myuser --dry-run=client -o yaml > /tmp/db-secrets.yaml
+
+# Install sealed-secrets
 helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets
 helm install sealed-secrets -n kube-system --set-string fullnameOverride=sealed-secrets-controller sealed-secrets/sealed-secrets
+
+# Seal secrets
+kubeseal < /tmp/db-secrets.yaml > ../kube/db-secrets.yaml -o yaml
 ```
