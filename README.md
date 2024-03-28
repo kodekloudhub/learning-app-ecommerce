@@ -129,7 +129,7 @@ curl http://localhost
 ```sh
 kubectl describe -f rs/go-demo-2.yml
 
-kubectl delete replicaset <name of replicaset>
+kubectl delete replicaset <name of replicaset> --cascade=orphan
 
 ```
 
