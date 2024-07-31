@@ -29,7 +29,7 @@ sudo systemctl enable mariadb
 2. Configure firewall for Database
 
 ```
-sudo firewall-cmd --permanent --zone=public --add-port=3306/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=3306/tcp  --->3306 is default mysql port
 sudo firewall-cmd --reload
 ```
 
